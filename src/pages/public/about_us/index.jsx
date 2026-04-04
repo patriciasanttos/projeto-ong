@@ -18,6 +18,26 @@ function AboutUs() {
           <ContentTitles title="Sobre Nós" subtitle="Conheça a nossa história" />
 
           <div className="aboutus-main-text">
+            <div style={{
+              width: '100%',
+              maxWidth: '560px',
+              height: '315px',
+              border: '2px dashed #3a9e3f',
+              borderRadius: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: '#f0f8f0',
+              marginBottom: '1.5rem',
+              flexDirection: 'column',
+              gap: '0.5rem',
+            }}>
+              <span style={{ fontSize: '2.5rem' }}>📷</span>
+              <p style={{ color: '#3a9e3f', fontWeight: '600', fontSize: '1.1rem', textAlign: 'center', padding: '0 1rem' }}>
+                Sua foto ou vídeo aqui
+              </p>
+            </div>
+
             <p className="text-about">
               Somos uma organização dedicada ao resgate e cuidado de animais
               abandonados, oferecendo a eles segurança, cuidado e
