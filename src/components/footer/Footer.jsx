@@ -48,18 +48,18 @@ function Footer() {
               <a
                 target="_blank"
                 rel="noreferrer"
-                href="https://api.whatsapp.com/send?phone=553299655493"
+                href="#"
               >
-                (32) 9965-5493
+                (00) 0000-0000
               </a>
             </li>
             <li className="footer_contact_link">
               <a
                 target="_blank"
                 rel="noreferrer"
-                href="https://maps.app.goo.gl/yuyLm9Tk9cHC593Q6"
+                href="#"
               >
-                BR 040 km 787 - São Pedro CEP 36039-080, Juiz de Fora - MG
+                Rua Exemplo, 123 - Centro, Cidade - UF
               </a>
             </li>
           </ul>
@@ -69,7 +69,7 @@ function Footer() {
 
         <ul className="footer_links">
           <li>
-            <a target="blank" rel="noreferrer" href="mailto:ongsjpa@gmail.com">
+            <a target="blank" rel="noreferrer" href="mailto:contato@abrigoanimal.org">
               <img src={email} alt="Email" />
             </a>
           </li>
@@ -77,13 +77,13 @@ function Footer() {
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://www.instagram.com/ong_sjpa/"
+              href="https://www.instagram.com/"
             >
               <img src={instagram} alt="Instagram" />
             </a>
           </li>
           <li>
-            <a target="blank" rel="noreferrer" href="https://www.youtube.com/@SJPAjf">
+            <a target="blank" rel="noreferrer" href="https://www.youtube.com/">
               <img src={youtube} alt="Youtube" />
             </a>
           </li>
@@ -91,7 +91,7 @@ function Footer() {
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://maps.app.goo.gl/yuyLm9Tk9cHC593Q6"
+              href="#"
             >
               <img src={location} alt="Location" />
             </a>

@@ -24,22 +24,13 @@ function Contact() {
           title="Entre em contato e faça parte dessa causa"
           subtitle="Juntos podemos fazer a diferença!"
           text="Você ama os animais e deseja ajudar a proporcionar uma vida melhor para eles?"
-          text2="Nossa ONG está comprometida em cuidar e encontrar lares amorosos para animais abandonados. Precisamos do seu apoio!"
+          text2="Estamos comprometidos em cuidar e encontrar lares amorosos para animais abandonados. Precisamos do seu apoio!"
         />
 
         <main className="contact-page-main">
           <ContentTitles subtitle="Como nos encontrar" title="Fale Conosco"/>
           
           <section className="address">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3705.664113657807!2d-43.446819524338544!3d-21.75454368008266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x989928e47f698d%3A0xe2f61fb1e1d6662c!2sONG%20SJPA!5e0!3m2!1spt-BR!2sbr!4v1724877140399!5m2!1spt-BR!2sbr"
-              width="500"
-              height="300"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Maps"
-            ></iframe>
-
             <div className="address-text">
               <div>
                 <h4>Endereço</h4>
@@ -48,8 +39,8 @@ function Contact() {
               </div>
 
               <p>
-                BR 040, km 787 - São Pedro <br /> <br />
-                CEP 36039-080, Juiz de Fora - MG
+                Rua Exemplo, 123 - Centro <br /> <br />
+                CEP 00000-000, Cidade - UF
               </p>
             </div>
           </section>
@@ -67,14 +58,15 @@ function Contact() {
               </div>
 
               <div className="whatsapp-link">
-                <p>Responsável: Elenir da Silva Silveira</p>
+                <p>Entre em contato conosco</p>
                 <a
-                  target="_blanck"
-                  href="https://api.whatsapp.com/send?phone=553299655493"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="#"
                 >
                   <div>
                     <img src={link_icon} alt="Link" />
-                    <p>+55 (32) 9965-5493</p>
+                    <p>(00) 0000-0000</p>
                   </div>
                 </a>
               </div>
@@ -87,8 +79,7 @@ function Contact() {
                 <img src={email_icon} alt="Email" />
               </div>
 
-              <p>ongsjpa@gmail.com</p>
-              <p>voluntariabeatriz@ongsjpa.org</p>
+              <p>contato@abrigoanimal.org</p>
             </div>
 
             <div className="instagram">
@@ -102,9 +93,9 @@ function Contact() {
                 />
               </div>
 
-              <a target="_blanck" href="https://www.instagram.com/ong_sjpa/">
+              <a target="_blank" rel="noreferrer" href="https://www.instagram.com/">
                 <img src={link_icon} alt="Link" />
-                <p>ong_sjpa</p>
+                <p>@abrigo_animal</p>
               </a>
             </div>
           </section>
@@ -114,13 +105,13 @@ function Contact() {
 
             <details>
               <summary>
-                Eu preciso buscar o animal no Instituto ou vocês o trazem até
+                Eu preciso buscar o animal no abrigo ou vocês o trazem até
                 minha casa?
               </summary>
               <div>
                 <p>
-                  Sim , mas normalmente pedimos sempre por um táxi cão
-                  solidário.
+                  Normalmente pedimos que o adotante venha buscar o animal no abrigo,
+                  mas podemos combinar alternativas.
                 </p>
               </div>
             </details>
@@ -133,11 +124,11 @@ function Contact() {
             </details>
 
             <details>
-              <summary>Apenas pessoas de Juiz de Fora podem adotar?</summary>
+              <summary>Pessoas de qualquer cidade podem adotar?</summary>
               <div>
                 <p>
-                  Não, pode ser de qualquer lugar mas se não puder buscar o
-                  animal, deverá custear a ida do animal até o local.
+                  Sim, pode ser de qualquer lugar, mas se não puder buscar o
+                  animal, deverá custear o transporte.
                 </p>
               </div>
             </details>
@@ -147,19 +138,18 @@ function Contact() {
               <div>
                 <p>
                   Patrocinadores fazem doações mensais de um determinado valor
-                  ou produtos, exemplo: mil reais para gastar na loja ou 100
-                  sacos de rações para filhotes.
+                  ou produtos para ajudar no cuidado dos animais.
                 </p>
               </div>
             </details>
 
             <details>
-              <summary>Recebemos ajuda do governo?</summary>
+              <summary>O abrigo recebe ajuda do governo?</summary>
               <div>
                 <p>
-                  A ong é particular, de tempos em tempos recebemos verbas de
-                  vereadores ou do governo, mas nada definitivo e sempre para
-                  algo específico (como compra de ração ou castração).
+                  Somos uma organização independente e dependemos 
+                  principalmente de doações da comunidade para manter
+                  nosso trabalho.
                 </p>
               </div>
             </details>

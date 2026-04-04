@@ -12,10 +12,6 @@ import { getAllAnimals } from "../../../services/api/animals";
 import "./landingPage.scss";
 
 // import images
-import vetSluzia from "../../../assets/images/landing_page/vet-sluzia.svg";
-import agrotela from "../../../assets/images/landing_page/agrotela.svg";
-import vetJf from "../../../assets/images/landing_page/vet-Jf.svg";
-import arca from "../../../assets/images/landing_page/arca.svg";
 import sponsorImg from "../../../assets/images/landing_page/sponsor-img.svg";
 import volunteerImg from "../../../assets/images/landing_page/volunteer-img.svg";
 import imageDog1 from "../../../assets/images/landing_page/dog1.svg";
@@ -59,11 +55,11 @@ function LandingPage() {
       <section className="hero">
         <div className="hero-all-text">
           <h1 className="hero-title">
-            Há 36 anos cuidando de
+            Cuidando de animais
             <br />
-            animais abandonados
+            abandonados com
             <br />
-            em Juiz de Fora/MG.
+            amor e dedicação.
           </h1>
           <p className="hero-text">
           Junte-se a nós nessa missão de amor e esperança!
@@ -97,28 +93,10 @@ function LandingPage() {
         <h3 className="subtitle">Junte-se a nós</h3>
         <h1 className=" title partner-title">Seja um parceiro</h1>
         <div className="align-partner-cards">
-          <a
-            href="https://www.instagram.com/clinicavetsantaluzia/"
-            target="blank"
-          >
-            <img src={vetSluzia} alt="" />{" "}
-          </a>
-          <a href="https://www.instagram.com/agrotela/" target="blank">
-            <img src={agrotela} alt="" />
-          </a>
-          <a
-            href="https://www.instagram.com/clinicaveterinaria_cvjf"
-            target="blank"
-          >
-            <img src={vetJf} alt="" />
-          </a>
-          <a href="https://www.instagram.com/arcapetstorejf/" target="blank">
-            <img src={arca} alt="" />{" "}
-          </a>
         </div>
         <div className="align-btn margin-top-btn">
           <a
-            href="https://api.whatsapp.com/send?phone=553299655493"
+            href="#"
             target="blank"
           >
             <button className="btn-partner btn">Quero ser parceiro</button>
