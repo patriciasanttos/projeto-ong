@@ -7,6 +7,10 @@ import medicine from "../../assets/icons/donation/medicine.svg";
 import './DonationCard.scss';
 
 function DonationCard() {
+  const handleDonate = (kit, value) => {
+    alert(`Obrigado por escolher doar!\n\nKit: ${kit}\nValor: R$ ${value},00\n\nSua doação faz a diferença na vida dos animais! 🐾`);
+  };
+
   return (
     <section className="donation_card">
       <div className="card">
@@ -26,12 +30,7 @@ function DonationCard() {
             baias. Mantenha o ambiente limpo e seguro!
           </p>
           <br />
-          <a
-            href="https://link.picpay.com/p/172764103166f9b5c71edaa"
-            target="blank"
-          >
-            <button>Doe Agora</button>
-          </a>
+          <button onClick={() => handleDonate('Kit de Limpeza', 25)}>Doe Agora</button>
         </div>
       </div>
 
@@ -52,12 +51,7 @@ function DonationCard() {
             saúde e bem-estar dos nossos animais.
           </p>
           <br />
-          <a
-            href="https://link.picpay.com/p/172764108366f9b5fb2073f"
-            target="blank"
-          >
-            <button>Doe Agora</button>
-          </a>
+          <button onClick={() => handleDonate('Kit Preventivo de Doenças', 50)}>Doe Agora</button>
         </div>
       </div>
 
@@ -77,9 +71,7 @@ function DonationCard() {
             cuidado e a recuperação dos animais.
           </p>
           <br />
-          <a href="https://link.picpay.com/p/172764116966f9b651b136f" target='blank'>
-            <button>Doe Agora</button>
-          </a>
+          <button onClick={() => handleDonate('Kit Diária de Internação', 100)}>Doe Agora</button>
         </div>
       </div>
     </section>
