@@ -118,12 +118,12 @@ const FormOver18 = () => {
       })
         .then(() => {
           setLoading(false);
-          toast.success("Formulário enviado com sucesso!");
+          alert('Formulário de voluntário enviado com sucesso! 🐾\n\nEntraremos em contato em breve.');
           setFormOver18(formOver18Initial)
         })
         .catch(error => {
           setLoading(false);
-          toast.error("Erro ao enviar formulário. Tente novamente.");
+          alert('Erro ao enviar formulário. Tente novamente.');
           console.log(error)
         });
     }

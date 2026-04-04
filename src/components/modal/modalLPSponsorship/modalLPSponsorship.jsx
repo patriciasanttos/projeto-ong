@@ -81,7 +81,7 @@ function ModalLPSponsorship({
       })
         .then(() => {
           setLoading(false);
-          toast.success("Formulário enviado com sucesso!");
+          alert('Formulário de apadrinhamento enviado com sucesso! 🐾\n\nEntraremos em contato em breve.');
           onModalClose();
           setFormSponsor({
             tutors_name: "",
@@ -90,7 +90,7 @@ function ModalLPSponsorship({
           });
         }).catch(error => {
           setLoading(false);
-          toast.error("Erro ao enviar formulário. Tente novamente.");
+          alert('Erro ao enviar formulário. Tente novamente.');
         });
     }
     
@@ -128,7 +128,7 @@ function ModalLPSponsorship({
     })
       .then(() => {
         setLoading(false);
-        toast.success("Formulário enviado com sucesso!");
+        alert('Formulário de adoção enviado com sucesso! 🐾\n\nEntraremos em contato para informações sobre a adoção.');
         onModalClose();
         setFormAdoption({
           tutors_name: "",
@@ -139,7 +139,7 @@ function ModalLPSponsorship({
         });
       }).catch(error => {
         setLoading(false);
-        toast.error("Erro ao enviar formulário. Tente novamente.");
+        alert('Erro ao enviar formulário. Tente novamente.');
       });
   };
 
