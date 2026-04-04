@@ -13,7 +13,9 @@ function NavBar() {
   
   return (
     <nav className={styles.navbar}>
-        <img src={logo} alt="Logo" className={styles.logo} />
+        <Link to="/">
+          <img src={logo} alt="Logo" className={styles.logo} />
+        </Link>
 
         <ul className={`${styles.navbar_links} ${isOpen ? styles.active : ''}`}>
             <li><Link className={styles.link} to='/'>Início</Link></li>
