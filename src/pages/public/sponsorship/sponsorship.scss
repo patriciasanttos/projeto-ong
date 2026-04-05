@@ -6,7 +6,7 @@
     height: 100vh;
 }
 
-.text{
+.text {
     text-align: center;
     padding-bottom: 20px;
     color: #26A59E;
@@ -15,31 +15,32 @@
     font-size: 16px;
 }
 
-.photoGalleryCenter {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
 .contentContainer {
     background-image: url('../../../assets/images/backgrounds/bg-white-paw.svg');
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 20px 0px;
+    align-items: center;
     background-color: #F4F4F4;
+    padding: 30px 20px;
 }
 
-.photoGallery{
-    display: flex;
-    flex-direction: row;
-    max-width: 900px;
-}
-  
 .cardContainer {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    justify-content: center;
+    justify-items: center;
+    max-width: 960px;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .cardContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cardContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

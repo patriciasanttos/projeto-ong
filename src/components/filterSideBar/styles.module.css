@@ -112,14 +112,19 @@
 @media (max-width: 768px) {
   .filterBar {
     grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 16px 20px;
-    margin: 0 16px 24px 16px;
-    width: auto;
+    gap: 12px;
+    padding: 16px;
+    margin: 0 8px 24px 8px;
+    width: calc(100% - 16px);
   }
 
   .filterGroup {
     min-width: 100%;
+  }
+
+  .filterSelect {
+    padding: 10px 30px 10px 12px;
+    font-size: 14px;
   }
 
   .filterActions {
