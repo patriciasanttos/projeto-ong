@@ -8,8 +8,8 @@ function Modal({ isOpen, onModalClose, children, title }) {
   if (isOpen) {
     return (
       <div className="modal-container">
-        <div className="background">
-          <div className="modal">
+        <div className="background" onClick={onModalClose}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
             <div className="modalHeader">
               <h1>{title}</h1>
               <div className="closeModal">

@@ -1,94 +1,89 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import styles from './styles.module.css';
-import { FiSliders } from "react-icons/fi";
 
 const FilterSidebar = ({ filtersState, setFiltersState }) => {
-  const [isFilterVisible, setIsFilterVisible] = useState(false);
-  const sidebarRef = useRef(null);
 
-  const toggleFilters = () => {
-    setIsFilterVisible(!isFilterVisible);
+  const handleFilterChange = (filterName, value) => {
+    setFiltersState({
+      ...filtersState,
+      [filterName]: value,
+    });
   };
 
-  const handleClickOutside = (event) => {
-    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-      setIsFilterVisible(false);
-    }
+  const clearFilters = () => {
+    setFiltersState({
+      species: "",
+      gender: "",
+      age: "",
+      size: "",
+    });
   };
 
-  const setFilters = (element) => {
-    const filterType = element.target.name;
-    const value = element.target.value;
-    
-    if (element.target.checked) {
-      if (!filtersState[filterType]) 
-        return setFiltersState({
-          ...filtersState,
-          [filterType]: value,
-        });
-
-      return setFiltersState({ ...filtersState, [filterType]: `${filtersState[filterType]}/${value}` })
-    } 
-
-    const filtersArray = filtersState[filterType].split('/');
-    const updatedFilters = filtersArray.filter(item => item !== value);
-
-    return setFiltersState({ ...filtersState, [filterType]: updatedFilters.length > 0 ? updatedFilters.join('/') : '' })
-  }
-
-  useEffect(() => {
-    if (isFilterVisible) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isFilterVisible]);
+  const hasActiveFilters = Object.values(filtersState).some((v) => v !== "");
 
   return (
-    <div className={styles.filterWrapper}>
-      {/* Botão para mostrar/ocultar filtros em telas menores */}
-      <button className={styles.filterToggle} onClick={toggleFilters}>
-        <FiSliders className={styles.icon} /> Filtros
-      </button>
-      <div
-        ref={sidebarRef}
-        className={`${styles.filterSidebar} ${isFilterVisible ? styles.visible : ''}`}
-      >
-        <div className={styles.filterGroup}>
-          <label className={styles.title}>Animais</label>
-          <div>
-            <label><input type="checkbox" name='species' value='canina' onChange={(e) => setFilters(e)} />Cão</label>
-            <label><input type="checkbox" name='species' value='gato' onChange={(e) => setFilters(e)} />Gato</label>
-          </div>
-        </div>
-        <div className={styles.filterGroup}>
-          <label className={styles.title}>Sexo</label>
-          <div>
-            <label><input type="checkbox" name='gender' value='M' onChange={(e) => setFilters(e)}/>Macho</label>
-            <label><input type="checkbox" name='gender' value='F' onChange={(e) => setFilters(e)}/>Fêmea</label>
-          </div>
-        </div>
-        <div className={styles.filterGroup}>
-          <label className={styles.title}>Porte</label>
-          <div>
-            <label><input type="checkbox" name='size' value='grande' onChange={(e) => setFilters(e)}/> G (mais de 25kg)</label>
-            <label><input type="checkbox" name='size' value='medio' onChange={(e) => setFilters(e)}/> M (até de 25kg)</label>
-            <label><input type="checkbox" name='size' value='pequeno' onChange={(e) => setFilters(e)}/> P (até de 10kg)</label>
-          </div>
-        </div>
-        <div className={styles.filterGroup}>
-          <label className={styles.title}>Idade</label>
-          <div>
-            <label><input type="checkbox" name='age' value='Filhote' onChange={(e) => setFilters(e)}/> Filhote </label>
-            <label><input type="checkbox" name='age' value='Adulto' onChange={(e) => setFilters(e)}/> Adulto </label>
-            <label><input type="checkbox" name='age' value='Idoso' onChange={(e) => setFilters(e)}/> Idoso </label>
-          </div>
-        </div>
+    <div className={styles.filterBar}>
+      <div className={styles.filterGroup}>
+        <label className={styles.filterLabel}>Animal</label>
+        <select
+          className={styles.filterSelect}
+          value={filtersState.species}
+          onChange={(e) => handleFilterChange("species", e.target.value)}
+        >
+          <option value="">Selecionar</option>
+          <option value="canina">Cão</option>
+          <option value="felina">Gato</option>
+        </select>
       </div>
+
+      <div className={styles.filterGroup}>
+        <label className={styles.filterLabel}>Sexo</label>
+        <select
+          className={styles.filterSelect}
+          value={filtersState.gender}
+          onChange={(e) => handleFilterChange("gender", e.target.value)}
+        >
+          <option value="">Selecionar</option>
+          <option value="M">Macho</option>
+          <option value="F">Fêmea</option>
+        </select>
+      </div>
+
+      <div className={styles.filterGroup}>
+        <label className={styles.filterLabel}>Porte</label>
+        <select
+          className={styles.filterSelect}
+          value={filtersState.size}
+          onChange={(e) => handleFilterChange("size", e.target.value)}
+        >
+          <option value="">Selecionar</option>
+          <option value="pequeno">P (até 10kg)</option>
+          <option value="medio">M (até 25kg)</option>
+          <option value="grande">G (mais de 25kg)</option>
+        </select>
+      </div>
+
+      <div className={styles.filterGroup}>
+        <label className={styles.filterLabel}>Idade</label>
+        <select
+          className={styles.filterSelect}
+          value={filtersState.age}
+          onChange={(e) => handleFilterChange("age", e.target.value)}
+        >
+          <option value="">Selecionar</option>
+          <option value="Filhote">Filhote</option>
+          <option value="Adulto">Adulto</option>
+          <option value="Idoso">Idoso</option>
+        </select>
+      </div>
+
+      {hasActiveFilters && (
+        <div className={styles.filterActions}>
+          <button className={styles.clearButton} onClick={clearFilters}>
+            Limpar filtros
+          </button>
+        </div>
+      )}
     </div>
   );
 };

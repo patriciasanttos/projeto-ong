@@ -7,13 +7,13 @@ import Footer from "../../../components/footer/Footer";
 import ContentHero from "../../../components/contentHero/ContentHero";
 import CardAnimal from "../../../components/cardAnimal/CardAnimal";
 import imageDog1 from "../../../assets/images/landing_page/dog1.svg";
+import imageCat from "../../../assets/images/cat-image.jpg";
 import FilterSidebar from "../../../components/filterSideBar/FilterSideBar";
 import LoadingPaw from "../../../components/loadingPaw";
 import ModalLPSponsorship from "../../../components/modal/modalLPSponsorship";
 import Menu from "../../../components/menu/Menu";
 import { getAllAnimals } from "../../../services/api/animals";
 import Pagination from "../../../components/pagination";
-import useResponsive from "../../../hooks/useResponsive";
 
 const Adoption = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,50 +28,41 @@ const Adoption = () => {
     age: "",
     size: "",
   });
-  const { isMobile } = useResponsive();
 
   useEffect(() => {
     const getAnimals = async () => {
       const data = await getAllAnimals();
 
-      await data.forEach((animal) => {
-        animals.push({
+      const formattedAnimals = data.map((animal) => {
+        const isCat = animal.species === "felina";
+        const defaultImage = isCat ? imageCat : imageDog1;
+
+        return {
           ...animal,
           name: animal?.name.charAt(0).toUpperCase() + animal?.name.slice(1).toLowerCase(),
           race: animal?.race,
           image: animal?.image
             ? `data:image/jpg;base64,${animal.image}`
-            : imageDog1,
-        });
+            : defaultImage,
+        };
       });
 
-      setAnimals(animals);
-      setFilteredAnimals(animals);
-      return setLoading(false);
+      setAnimals(formattedAnimals);
+      setFilteredAnimals(formattedAnimals);
+      setLoading(false);
     };
 
     getAnimals();
   }, []);
 
   const getFilteredAnimals = (items) => {
-    const results = items.filter((animal) => {
+    return items.filter((animal) => {
       return Object.entries(filters).every(([key, value]) => {
         if (value === "") return true;
-
-        if (key === "gender" && String(animal.gender) === String(animal.gender).toLowerCase())
-          value = value.toLowerCase();
-
-        if (key === "age" && String(animal.age) === String(animal.age).toLowerCase())
-          value = value.toLowerCase();
-
-        if (value.includes("/")) return value.includes(String(animal[key]));
-
-        return String(animal[key]) === String(value);
+        return String(animal[key]).toLowerCase() === value.toLowerCase();
       });
     });
-
-    return results.length > 0 ? results : [];
-  }
+  };
   
   useEffect(() => {
     setFilteredAnimals(getFilteredAnimals(animals));
@@ -95,47 +86,34 @@ const Adoption = () => {
         <LoadingPaw />
       ) : (
         <div className="content-container">
-          <div className="photo-gallery">
-            {!isMobile && (
-              <FilterSidebar
-                filtersState={filters}
-                setFiltersState={setFilters}
+          <FilterSidebar
+            filtersState={filters}
+            setFiltersState={setFilters}
+          />
+
+          <p className="text">Conheça alguns de nossos animais</p>
+
+          <div className="card-container">
+            {paginatedAnimals.map((animal, index) => (
+              <CardAnimal
+                onClickButton={onClickCardAnimal}
+                animal={animal}
+                key={index}
+                image={animal.image}
+                name={animal.name}
+                gender={
+                  ["m", "macho"].includes(animal.gender.toLowerCase()) ? "Macho" : "Fêmea"
+                }
+                race={animal.race}
+                age={animal.age}
               />
-            )}
-
-            <div>
-              <p className="text">Conheça alguns de nossos animais</p>
-
-              {isMobile && (
-                <FilterSidebar
-                  filtersState={filters}
-                  setFiltersState={setFilters}
-                />
-              )}
-
-              <div className="card-container">
-                {paginatedAnimals.map((animal, index) => (
-                  <CardAnimal
-                    onClickButton={onClickCardAnimal}
-                    animal={animal}
-                    key={index}
-                    image={animal.image}
-                    name={animal.name}
-                    gender={
-                      ["m", "macho"].includes(animal.gender.toLowerCase()) ? "Macho" : "Fêmea"
-                    }
-                    race={animal.race}
-                    age={animal.age}
-                  />
-                ))}
-              </div>
-
-              <Pagination
-                listItems={filteredAnimals}
-                onPaginate={(items) => setPaginatedAnimals(items)}
-              />
-            </div>
+            ))}
           </div>
+
+          <Pagination
+            listItems={filteredAnimals}
+            onPaginate={(items) => setPaginatedAnimals(items)}
+          />
         </div>
       )}
 

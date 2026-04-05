@@ -19,40 +19,28 @@
     background-image: url('../../../assets/images/backgrounds/bg-white-paw.svg');
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
     background-color: #F4F4F4;
-    padding: 20px 0px;
+    padding: 30px 20px;
 }
 
-.photo-gallery{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 50px;
-}
-  
 .card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: 20px; 
     justify-items: center;
-    min-width: 55%;
+    max-width: 960px;
+    width: 100%;
 }
 
 @media (max-width: 1024px) {
     .card-container {
-        grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas médias */
-        min-width: 80%;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     .card-container {
-        grid-template-columns: repeat(1, 1fr); /* Uma coluna em telas pequenas */
-    }
-
-    .photo-gallery{
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(1, 1fr);
     }
 }

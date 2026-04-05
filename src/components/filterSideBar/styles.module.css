@@ -1,77 +1,134 @@
-.filterWrapper{
-  position: relative;
-}
-
-.filterSidebar {
-  color: black;
-  max-width: 500px;
-  margin-top: 80px;
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  max-width: 960px;
+  margin: 0 auto 30px auto;
+  box-sizing: border-box;
+  width: calc(100% - 32px);
 }
 
 .filterGroup {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  gap: 4px;
+  flex: 1;
+  min-width: 120px;
 }
 
-.filterGroup label {
-  display: flex;
-  margin-bottom: 10px;
-  gap: 10px;
+.filterLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a3c40;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
-.title {
-  color: #26A59E;
-  font-weight: bold;
-}
-
-.filterGroup select,
-.filterGroup input {
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.filterToggle {
-  min-width: 300px;
-  display: none; 
-  background-color: #26A59E;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+.filterSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  border: 1.5px solid #d4d4d4;
+  border-radius: 6px;
+  padding: 8px 30px 8px 10px;
+  font-size: 13px;
+  color: #555;
   cursor: pointer;
-  margin-bottom: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.filterToggle:hover {
-  background-color: #1a776f;
+.filterSelect:hover {
+  border-color: #26A59E;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #26A59E;
+  box-shadow: 0 0 0 3px rgba(38, 165, 158, 0.15);
+}
+
+.filterSelect option {
+  color: #333;
+}
+
+.filterActions {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 2px;
+}
+
+.clearButton {
+  background-color: #1a3c40;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.clearButton:hover {
+  background-color: #26A59E;
+  transform: translateY(-1px);
+}
+
+.clearButton:active {
+  transform: translateY(0);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .filterBar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 14px 16px;
+    width: calc(100% - 32px);
+  }
+
+  .filterActions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+  }
 }
 
 @media (max-width: 768px) {
-  .filterWrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+  .filterBar {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 16px 20px;
+    margin: 0 16px 24px 16px;
+    width: auto;
   }
 
-  .filterToggle {
-    display: block; 
+  .filterGroup {
+    min-width: 100%;
   }
 
-  .filterSidebar {
-    display: none; 
-    margin-top: 0px;
+  .filterActions {
+    width: 100%;
   }
 
-  .filterSidebar.visible {
-    top: 38px;
-    display: block; 
-    position: absolute;
-    background-color: #ffffffde;
-    min-width: 300px;
+  .clearButton {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
   }
-
 }
