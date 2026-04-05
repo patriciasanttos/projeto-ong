@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { IMaskInput } from "react-imask";
-import { toast } from 'react-toastify';
 import "./Styles.scss";
 
 import Modal from "..";

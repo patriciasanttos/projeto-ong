@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { toast } from "react-toastify";
 import { IMaskInput } from "react-imask";
 
 import Dropdown from "../../../components/dropdown";

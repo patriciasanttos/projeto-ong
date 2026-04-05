@@ -45,6 +45,7 @@ function Footer() {
             <li className="footer_list_title">Contato</li>
 
             <li className="footer_contact_link">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a
                 target="_blank"
                 rel="noreferrer"
@@ -54,6 +55,7 @@ function Footer() {
               </a>
             </li>
             <li className="footer_contact_link">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a
                 target="_blank"
                 rel="noreferrer"
@@ -88,11 +90,8 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="#"
-            >
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a target="_blank" rel="noreferrer" href="#">
               <img src={location} alt="Location" />
             </a>
           </li>

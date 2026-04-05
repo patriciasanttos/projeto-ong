@@ -15,10 +15,12 @@ const Pagination = ({ listItems, onPaginate }) => {
 
   useEffect(() => {
     onPaginate(paginate(listItems, currentPage, itemsPerPage));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {
     onPaginate(paginate(listItems, currentPage, itemsPerPage));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listItems]);
 
   useEffect(() => {

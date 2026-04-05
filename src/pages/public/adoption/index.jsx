@@ -66,6 +66,7 @@ const Adoption = () => {
   
   useEffect(() => {
     setFilteredAnimals(getFilteredAnimals(animals));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const onClickCardAnimal = (animal) => {

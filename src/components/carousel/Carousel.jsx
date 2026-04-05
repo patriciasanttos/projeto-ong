@@ -1,5 +1,5 @@
 import "./Carousel.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSwipeable } from 'react-swipeable'
 
 import CardAnimal from "../../components/cardAnimal/CardAnimal";

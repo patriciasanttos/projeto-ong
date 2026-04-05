@@ -46,6 +46,7 @@ function LandingPage() {
         });
         setLoading(false);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -95,6 +96,7 @@ function LandingPage() {
         <div className="align-partner-cards">
         </div>
         <div className="align-btn margin-top-btn">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
             href="#"
             target="blank"

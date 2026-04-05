@@ -74,6 +74,7 @@ function Contact() {
 
               <div className="whatsapp-link">
                 <p>Entre em contato conosco</p>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a
                   target="_blank"
                   rel="noreferrer"
