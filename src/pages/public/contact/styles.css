@@ -33,10 +33,11 @@
         .address {
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
+            align-items: center;
             text-align: center;
 
-            padding: 0 8% 5% 0;
+            padding: 0 6% 5% 6%;
 
             iframe {
                 border: 0;
@@ -63,7 +64,7 @@
 
             margin-bottom: 5%;
             padding-left: 6%;
-            padding-right: 8%;
+            padding-right: 6%;
 
             p {
                 margin: 0;
@@ -94,6 +95,7 @@
 
                         p {
                             margin-left: 2%;
+                            white-space: nowrap;
                         }
                     }
                 }
@@ -171,159 +173,195 @@
                 }
             }
         }
+
+        .map-placeholder {
+            flex: 1;
+            min-width: 280px;
+            max-width: 500px;
+        }
+
+        .map-placeholder-inner {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #e8f5f3 0%, #d4ede9 40%, #e0f0ed 100%);
+            border-radius: 12px;
+            border: 2px solid #cde4df;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .map-streets {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .map-street-h,
+        .map-street-v {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 2px;
+        }
+
+        .map-street-h {
+            height: 3px;
+            width: 100%;
+        }
+
+        .map-street-v {
+            width: 3px;
+            height: 100%;
+        }
+
+        .map-street-1 { top: 35%; }
+        .map-street-2 { top: 70%; }
+        .map-street-3 { left: 30%; }
+        .map-street-4 { left: 65%; }
+
+        .map-pin-icon {
+            width: 48px;
+            height: 48px;
+            z-index: 1;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            animation: map-pin-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes map-pin-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .map-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a3c40;
+            letter-spacing: 0.5px;
+            z-index: 1;
+            opacity: 0.7;
+        }
     }
 }
 
 
 @media (max-width: 900px) {
-    .contact-page-main {
-
-        .address {
-
-            iframe {
-                width: 50rem;
-                height: 20rem;
-            }
-        }
-
-        .contacts {
-
-            .whatsapp {
-
-                img {
-                    width: 15%;
-                }
-            }
-
-        }
-
-        p {
-            font-size: 1rem;
-        }
-
-        .whatsapp-link {
-
-            p {
-                font-size: 0.8rem;
-            }
-        }
-
-        .email {
-
-            padding-left: 2%;
-
-            img {
-                width: 15%;
-            }
-
-            p {
-                font-size: 0.9rem;
-            }
-
-        }
-
-        .instagram {
-
-            img {
-                width: 20%;
-            }
-
-            p {
-                font-size: 0.9rem;
-            }
-        }
-    }
-
-}
-
-
-@media (max-width: 600px) {
-    .contact-page-main {
-
-        flex-direction: column;
-
-        .subtitle {
-            font-size: 2rem;
-            text-align: center;
-        }
+    .contact-page-container .contact-page-main {
+        padding: 5% 5%;
 
         .address {
             flex-direction: column;
-            flex-wrap: wrap;
-            text-align: center;
-
-
-            iframe {
-                width: 17rem;
-                height: 20rem;
-                align-items: center;
-            }
-
+            align-items: center;
+            padding: 0 0 5% 0;
+            gap: 20px;
 
             .address-text {
-                flex-wrap: wrap;
-                flex-direction: column;
-                justify-items: center;
                 text-align: center;
-
-                iframe {
-                    align-items: center;
-                }
+                margin-top: 1rem;
 
                 div {
-                    padding: 0 0 0 2.5rem;
-
+                    justify-content: center;
                 }
 
                 p {
                     text-align: center;
                 }
+            }
 
-                img {
-                    width: 15%;
-                }
+            .map-placeholder {
+                min-width: auto;
+                max-width: 100%;
+                width: 100%;
+            }
 
+            .map-placeholder-inner {
+                height: 220px;
             }
         }
 
         .contacts {
-
             flex-wrap: wrap;
             flex-direction: column;
-            padding-left: 0;
-            justify-items: center;
-            gap: 20px;
-            margin: 0px;
-
-            p {
-                font-size: 1rem;
-            }
-
+            align-items: center;
+            padding: 0;
+            gap: 24px;
+            margin-bottom: 5%;
 
             .contacts-title {
+                justify-content: center;
+            }
 
-                img {
-                    width: 15%;
-                }
+            p {
+                text-align: center;
             }
 
             .whatsapp {
-                align-items: center;
-                justify-items: center;
-                margin: 0rem;
+                text-align: center;
 
+                .whatsapp-link {
+                    align-items: center;
+
+                    div {
+                        justify-content: center;
+                    }
+                }
             }
 
             .email {
-                justify-items: center;
-                margin-left: 0px !important;
+                margin-left: 0;
+                text-align: center;
             }
 
             .instagram {
+                margin-left: 0;
+                text-align: center;
 
-                justify-items: center;
-                margin-left: 0px !important;
-                margin-bottom: 1rem;
+                a {
+                    justify-content: center;
+                }
+            }
+        }
+
+        .questions {
+            margin-left: 0;
+            text-align: center;
+
+            h4 {
+                text-align: center;
+            }
+
+            details {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-page-container .contact-page-main {
+        padding: 5% 4%;
+
+        h4 {
+            font-size: 1.2rem;
+        }
+
+        .address {
+            .map-placeholder-inner {
+                height: 180px;
+            }
+        }
+
+        .questions {
+            details {
+                padding: 3% 4%;
+
+                summary {
+                    font-size: 0.9rem;
+                }
             }
         }
     }
